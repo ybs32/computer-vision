@@ -37,8 +37,13 @@ int main()
 		 */
 		morphologyEx(frame, frame, MORPH_OPEN, Mat(), Point(-1, -1), 1);
 
-		// TODO: Detect contour
-		/* ... */
+		/*
+		 * Detect contours
+		 * CV_RETR_LIST: Extract all contours present in the image.
+		 * CV_CHAIN_APPROX_NONE: Get all coordinates that make up the contour,
+		 * adjacent 2 points exist within 8 neighborhoods.
+		 */
+		findContours(frame, contours, CV_RETR_LIST, CV_CHAIN_APPROX_NONE);
 
 		imshow("frame", frameSrc);
 
