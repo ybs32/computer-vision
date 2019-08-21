@@ -12,7 +12,8 @@ int main()
 	}
 
 	// Matrix class for handling image
-	Mat frameSrc, frame; 
+	Mat frameSrc, frame;
+
 	// Multiple contours, contour is a collection of coordinates
 	vector<vector<Point>> contours;
 
@@ -49,6 +50,11 @@ int main()
 		// Draw the detected contour line in green
 		for (auto contour = contours.begin(); contour != contours.end(); contour++) {
 			polylines(frameSrc, *contour, true, Scalar(0, 255, 0), 2);
+		}
+
+		// TODO
+		vector<Point> approx;
+		for (auto contour = contours.begin(); contour != contours.end(); contour++) {
 		}
 
 		imshow("frame", frameSrc);
