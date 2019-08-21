@@ -11,9 +11,10 @@ int main()
 		return -1;
 	}
 
-	// Declare variables
-	Mat frameSrc, frame; // Matrix class for handling image
-	vector<vector<Point>> contours; // Multiple contours, contour is a collection of coordinates
+	// Matrix class for handling image
+	Mat frameSrc, frame; 
+	// Multiple contours, contour is a collection of coordinates
+	vector<vector<Point>> contours;
 
 	while (cap.read(frameSrc)) {
 
@@ -44,6 +45,11 @@ int main()
 		 * adjacent 2 points exist within 8 neighborhoods.
 		 */
 		findContours(frame, contours, CV_RETR_LIST, CV_CHAIN_APPROX_NONE);
+
+		// Draw the detected contour line in green
+		for (auto contour = contours.begin(); contour != contours.end(); contour++) {
+			polylines(frameSrc, *contour, true, Scalar(0, 255, 0), 2);
+		}
 
 		imshow("frame", frameSrc);
 
