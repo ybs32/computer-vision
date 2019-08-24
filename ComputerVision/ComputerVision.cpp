@@ -23,7 +23,7 @@ int main()
 		medianBlur(frameSrc, frame, 3);
 
 		// Grayscale
-		cvtColor(frame, frame, CV_BGR2GRAY);
+		cvtColor(frame, frame, COLOR_BGR2GRAY);
 
 		/*
 		 * Binarization using Otsu's method
@@ -45,7 +45,7 @@ int main()
 		 * CV_CHAIN_APPROX_NONE: Get all coordinates that make up the contour,
 		 * adjacent 2 points exist within 8 neighborhoods.
 		 */
-		findContours(frame, contours, CV_RETR_LIST, CV_CHAIN_APPROX_NONE);
+		findContours(frame, contours, RETR_LIST, CHAIN_APPROX_NONE);
 
 		// Draw the detected contour line in green
 		for (auto contour = contours.begin(); contour != contours.end(); contour++) {
